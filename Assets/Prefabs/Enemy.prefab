@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1686536229226826004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.07, y: -11.77, z: 0}
+  m_LocalPosition: {x: -9.07, y: -11.77, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -179,6 +179,7 @@ MonoBehaviour:
   minY: -11.77
   maxY: 11.77
   blood: {fileID: 2816953526755531853, guid: 73b473ac34b441a418b2ac1a774c2c23, type: 3}
+  bloodParticles: {fileID: 6805621536825464394, guid: ee03de6bd169c7f48931c70fe4dc8047, type: 3}
   health: 2
   deathSound: {fileID: 5547602651477108013, guid: 03b30531e0d18e04aa0ff095b9a22843, type: 3}
 --- !u!95 &8035549064188140926

@@ -37,7 +37,7 @@ public class Worker : MonoBehaviour
         if (isSelected)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
+            mousePosition.z = transform.position.z;
             transform.position = mousePosition;
         } else
         {

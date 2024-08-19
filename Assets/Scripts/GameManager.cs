@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public string gameState = "play";
-    public GameObject losingScreen;
-    public GameObject winningScreen;
+    public Animator losingScreenAnim;
+    public Animator winningScreenAnim;
 
     public static GameManager Instance;
 
@@ -19,23 +19,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (gameState == "lose")
         {
-            losingScreen.GetComponent<Animator>().SetTrigger("show");
+            losingScreenAnim.SetTrigger("show");
+            GameOverScenario();
 
         }
 
         if (gameState == "win")
         {
-            winningScreen.GetComponent<Animator>().SetTrigger("show");
+            winningScreenAnim.SetTrigger("show");
+            GameOverScenario();
         }
     }
 

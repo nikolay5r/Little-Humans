@@ -10,12 +10,18 @@ public class Village : MonoBehaviour
     float nextSpawnTime;
     public float numberOfWorkersToSpawn;
 
+    private void Start()
+    {
+    }
+
     void Update()
     {
         if (Time.time >= nextSpawnTime)
         {
             nextSpawnTime = Time.time + timeBetweenSpawns;
-            Instantiate(workerPrefab, spawnPoint.position, Quaternion.identity);
+            Vector3 pos = spawnPoint.position;
+            pos.z = workerPrefab.transform.position.z;
+            Instantiate(workerPrefab, pos, Quaternion.identity);
             numberOfWorkersToSpawn--;
         }
 

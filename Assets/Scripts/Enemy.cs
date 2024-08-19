@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float minX, maxX, minY, maxY;
     public GameObject blood;
+    public GameObject bloodParticles;
     public int health = 2;
 
     Vector3 currentTarget;
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
             cameraAnimator.SetTrigger("shake");
             collision.GetComponent<Trap>().durability--;
             Instantiate(blood, transform.position, Quaternion.identity);
+            Instantiate(bloodParticles, transform.position, Quaternion.identity);
             Instantiate(deathSound);
             Destroy(gameObject);
         }
@@ -68,8 +70,9 @@ public class Enemy : MonoBehaviour
         {
             cameraAnimator.SetTrigger("shake");
             Instantiate(deathSound);
-            Destroy(collision.gameObject);
             Instantiate(blood, collision.transform.position, Quaternion.identity);
+            Instantiate(bloodParticles, collision.transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
             health--;
         }
     }

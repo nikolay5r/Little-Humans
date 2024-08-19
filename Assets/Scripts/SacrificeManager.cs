@@ -9,7 +9,7 @@ public class SacrificeManager : MonoBehaviour
     public TMP_Text sacrificedDisplay;
     public int sacrificedGoal = 25;
 
-    int numberOfSacrificedWorkers;
+    int numberOfSacrificedWorkers = 0;
     
     public static SacrificeManager Instance;
 
@@ -23,7 +23,6 @@ public class SacrificeManager : MonoBehaviour
 
     private void Start()
     {
-        numberOfSacrificedWorkers = 0;
         sacrificedDisplay.text = numberOfSacrificedWorkers + "/" + sacrificedGoal;
     }
 

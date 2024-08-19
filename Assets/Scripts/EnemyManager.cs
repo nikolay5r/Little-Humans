@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour
     public float timeBetweenSpawns;
     
     const float MIN_TIME_BETWEEN_SPAWNS = 1;
-    const float DECREASE_SPAWN_TIME = 1.5f;
 
     private void Start()
     {
@@ -38,12 +37,14 @@ public class EnemyManager : MonoBehaviour
 
         if (Time.time >= spawnTimeDecreaseTime && timeBetweenSpawns > MIN_TIME_BETWEEN_SPAWNS)
         {
-            timeBetweenSpawns /= DECREASE_SPAWN_TIME;
+            timeBetweenSpawns--;
         }
 
         if (Time.time >= nextSpawnTime)
         {
-            Instantiate(enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+            Vector3 pos = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+            pos.z = enemyPrefab.transform.position.z;
+            Instantiate(enemyPrefab, pos, Quaternion.identity);
             nextSpawnTime = Time.time + timeBetweenSpawns;
         }
     }
