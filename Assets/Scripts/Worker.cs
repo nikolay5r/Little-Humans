@@ -30,6 +30,10 @@ public class Worker : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameState != "play")
+        {
+            return;
+        }
         if (isSelected)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -25,6 +25,11 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameState != "play")
+        {
+            return;
+        }
+
         print(startTimeBetweenSpawns);
         if (Time.time < startDelay)
         {

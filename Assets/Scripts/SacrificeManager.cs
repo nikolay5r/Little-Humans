@@ -31,7 +31,7 @@ public class SacrificeManager : MonoBehaviour
     {
         if (numberOfSacrificedWorkers >= sacrificedGoal)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameManager.Instance.gameState = "win";
         }
     }
 

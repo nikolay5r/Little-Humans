@@ -15,24 +15,27 @@ public class ShopManager : MonoBehaviour
     ShopButton shopButton;
     public void OnShopClick(string ghostType)
     {
-        Instantiate(clickSound);
-        switch (ghostType)
+        if (GameManager.Instance.gameState == "play")
         {
-            case "village":
-                Instantiate(village);
-                break;
-            case "wood":
-                Instantiate(wood);
-                break;
-            case "crystal":
-                Instantiate(crystal);
-                break;
-            case "worker":
-                Instantiate(worker);
-                break;
-            case "trap":
-                Instantiate(trap);
-                break;
+            Instantiate(clickSound);
+            switch (ghostType)
+            {
+                case "village":
+                    Instantiate(village);
+                    break;
+                case "wood":
+                    Instantiate(wood);
+                    break;
+                case "crystal":
+                    Instantiate(crystal);
+                    break;
+                case "worker":
+                    Instantiate(worker);
+                    break;
+                case "trap":
+                    Instantiate(trap);
+                    break;
+            }
         }
     }
 }

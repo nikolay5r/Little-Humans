@@ -24,19 +24,22 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0)
+        if (GameManager.Instance.gameState == "play")
         {
-            Instantiate(blood, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+            if (health <= 0)
+            {
+                Instantiate(blood, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
 
-        if (Vector3.Distance(currentTarget, transform.position) <= MIN_TARGET_DISTANCE)
-        {
-            currentTarget = GetRandomPosition();
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
+            if (Vector3.Distance(currentTarget, transform.position) <= MIN_TARGET_DISTANCE)
+            {
+                currentTarget = GetRandomPosition();
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
+            }
         }
     }
 
@@ -49,7 +52,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Altar")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameManager.Instance.gameState = "lose";
         }
 
         if (collision.tag == "Trap")
